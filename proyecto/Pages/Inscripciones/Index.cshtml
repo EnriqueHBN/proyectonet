@@ -1,0 +1,62 @@
+@page
+@model RazorPagesUniversidad.Pages_Inscripciones.IndexModel
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body{
+        background: url(https://www.lasallebajio.edu.mx/comunidad/documents/imagotipo/Plantilla%20para%20Presentaci%C3%B3n/plantillasinstitucionales-07.jpg);
+        background-repeat: no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Pixelify Sans', sans-serif;
+        height: auto;
+    }
+    text{
+        font-family: 'Pixelify Sans', sans-serif;
+        font-size: auto;
+        color: black;
+    }
+</style>
+<h1 class="text" >Inscripciones</h1>
+
+<p class="text">
+    <a asp-page="Create" style="color: black;">Introduce nuevas Inscripciones</a>
+</p>
+<table class="table">
+    <thead class="text">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inscripcion[0].Id_curso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inscripcion[0].Id_estudiante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inscripcion[0].Grado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text">
+@foreach (var item in Model.Inscripcion) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_curso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_estudiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grado)
+            </td>
+            <td class="text">
+                <a asp-page="./Edit" asp-route-id="@item.Id_inscripcion"class="text" style="color:black; text-decoration-color :white">Edit&nbsp;&nbsp;</a> 
+                <a asp-page="./Details" asp-route-id="@item.Id_inscripcion"style="color:black; text-decoration-color :white">Details&nbsp;&nbsp;</a> 
+                <a asp-page="./Delete" asp-route-id="@item.Id_inscripcion"style="color:black; text-decoration-color :white">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+@page
+@model RazorPagesUniversidad.Pages_Cursos.DetailsModel
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    body{
+        background: url(https://www.lasallebajio.edu.mx/comunidad/documents/imagotipo/Plantilla%20para%20Presentaci%C3%B3n/plantillasinstitucionales-07.jpg);
+        background-repeat: no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Pixelify Sans', sans-serif;
+        height: auto;
+    }
+</style>
+<h1 style="font-weight: bolder;">Detalles Curso</h1>
+
+<div>
+    <h4>Curso</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Curso.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Curso.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Curso.Creditos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Curso.Creditos)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Curso?.Id_curso">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

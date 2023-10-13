@@ -1,0 +1,54 @@
+@page
+@model RazorPagesUniversidad.Pages_Estudiantes.EditModel
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    body{
+        background: url(https://www.lasallebajio.edu.mx/comunidad/documents/imagotipo/Plantilla%20para%20Presentaci%C3%B3n/plantillasinstitucionales-07.jpg);
+        background-repeat: no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Pixelify Sans', sans-serif;
+        height: auto;
+    }
+</style>
+<h1 style="font-weight: bolder;">Editar Estudiante</h1>
+
+<h4>Estudiante</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Estudiante.Id_estudiante" />
+            <div class="form-group">
+                <label asp-for="Estudiante.Apellidos" class="control-label"></label>
+                <input asp-for="Estudiante.Apellidos" class="form-control" />
+                <span asp-validation-for="Estudiante.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estudiante.Nombres" class="control-label"></label>
+                <input asp-for="Estudiante.Nombres" class="form-control" />
+                <span asp-validation-for="Estudiante.Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estudiante.Fecha_inscripcion" class="control-label"></label>
+                <input asp-for="Estudiante.Fecha_inscripcion" class="form-control" />
+                <span asp-validation-for="Estudiante.Fecha_inscripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

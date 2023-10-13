@@ -1,0 +1,48 @@
+@page
+@model RazorPagesUniversidad.Pages_Inscripciones.DeleteModel
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    body{
+        background: url(https://www.lasallebajio.edu.mx/comunidad/documents/imagotipo/Plantilla%20para%20Presentaci%C3%B3n/plantillasinstitucionales-07.jpg);
+        background-repeat: no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Pixelify Sans', sans-serif;
+        height: auto;
+    }
+</style>
+<h1 style="font-weight: bolder;">Eliminar</h1>
+
+<div>
+    <h4>Inscripcion</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inscripcion.Id_curso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inscripcion.Id_curso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inscripcion.Id_estudiante)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inscripcion.Id_estudiante)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inscripcion.Grado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inscripcion.Grado)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Inscripcion.Id_inscripcion" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

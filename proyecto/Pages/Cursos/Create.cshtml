@@ -1,0 +1,44 @@
+@page
+@model RazorPagesUniversidad.Pages_Cursos.CreateModel
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Curso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Curso.Id_curso" class="control-label"></label>
+                <input asp-for="Curso.Id_curso" class="form-control" />
+                <span asp-validation-for="Curso.Id_curso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Curso.Titulo" class="control-label"></label>
+                <input asp-for="Curso.Titulo" class="form-control" />
+                <span asp-validation-for="Curso.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Curso.Creditos" class="control-label"></label>
+                <input asp-for="Curso.Creditos" class="form-control" />
+                <span asp-validation-for="Curso.Creditos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

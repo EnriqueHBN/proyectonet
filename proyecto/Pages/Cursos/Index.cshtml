@@ -1,0 +1,67 @@
+@page
+@model RazorPagesUniversidad.Pages_Cursos.IndexModel
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body{
+        background: url(https://www.lasallebajio.edu.mx/comunidad/documents/imagotipo/Plantilla%20para%20Presentaci%C3%B3n/plantillasinstitucionales-07.jpg);
+        background-repeat: no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Pixelify Sans', sans-serif;
+        height: auto;
+        color: black;
+    }
+    .text{
+        font-family: 'Pixelify Sans', sans-serif;
+        font-size: auto;
+        color: black;
+    }
+</style>
+<h1  style="font-weight: bolder;">Cursos</h1>
+
+<p>
+    <a asp-page="Create" class="text" style="color:black">Create New</a>
+</p>
+<form>
+    <p>
+        <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" style="width: 750px; background-color:none;"/>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table"style="color:black; font-weight:bolder;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso[0].Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso[0].Creditos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Curso) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creditos)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id_curso"class="text"style="color:black; text-decoration-color :white">Edit&nbsp;&nbsp;</a> 
+                <a asp-page="./Details" asp-route-id="@item.Id_curso"class="text"style="color:black; text-decoration-color :white">Details&nbsp;&nbsp;</a> 
+                <a asp-page="./Delete" asp-route-id="@item.Id_curso" class="text"style="color: black; text-decoration-color :white">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
